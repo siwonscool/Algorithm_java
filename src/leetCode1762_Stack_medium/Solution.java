@@ -6,17 +6,24 @@ import java.util.stream.IntStream;
 
 public class Solution {
     public int[] findBuildings(int[] heights) {
+        boolean heightCheck = false;
         Deque<Integer> stack = new LinkedList<>();
-        for (int i = 0; i < heights.length - 1; i++) {
+
+        loop1 :for (int i = 0; i < heights.length; i++) {
             if (i == heights.length - 1){
-                stack.push(i);
-                continue;
+                stack.add(i);
             }
 
-            for (int j = i; j < heights.length; j++) {
-                if (heights[i] - heights[i+1]>0){
-                    stack.push(i);
+            heightCheck = false;
+
+            for (int j = i+1; j < heights.length; j++) {
+                if(heights[i] <= heights[j]){
+                    heightCheck = true;
                 }
+            }
+
+            if (heightCheck == false){
+                stack.add(i);
             }
         }
 
