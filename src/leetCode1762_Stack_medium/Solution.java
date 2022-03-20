@@ -4,30 +4,18 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-public class Solution {
+class Solution {
     public int[] findBuildings(int[] heights) {
-        boolean heightCheck = false;
+        //값이 0 인덱스 부터 들어온다고 했을때 왼쪽에 있는 친구들이 나보다 작으면 stack에서 빼줌
         Deque<Integer> stack = new LinkedList<>();
 
-        loop1 :for (int i = 0; i < heights.length; i++) {
-            if (i == heights.length - 1){
-                stack.add(i);
+        for(int i = 0; i < heights.length ; i++){
+            while(!stack.isEmpty()&&heights[stack.peekLast()] <= heights[i]){
+                stack.pollLast();
             }
-
-            heightCheck = false;
-
-            for (int j = i+1; j < heights.length; j++) {
-                if(heights[i] <= heights[j]){
-                    heightCheck = true;
-                }
-            }
-
-            if (heightCheck == false){
-                stack.add(i);
-            }
+            stack.add(i);
         }
 
         return stack.stream().mapToInt(i -> i).toArray();
     }
-
 }
