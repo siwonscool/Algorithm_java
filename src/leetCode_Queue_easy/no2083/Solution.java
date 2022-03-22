@@ -1,4 +1,4 @@
-package leetCode2083_Queue_easy;
+package leetCode_Queue_easy.no2083;
 
 class Solution {
 

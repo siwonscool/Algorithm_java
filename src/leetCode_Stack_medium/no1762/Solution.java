@@ -1,4 +1,4 @@
-package leetCode1762_Stack_medium;
+package leetCode_Stack_medium.no1762;
 
 import java.util.Deque;
 import java.util.LinkedList;

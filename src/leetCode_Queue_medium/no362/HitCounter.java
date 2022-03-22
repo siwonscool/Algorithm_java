@@ -1,4 +1,4 @@
-package leetCode362_Queue_medium;
+package leetCode_Queue_medium.no362;
 
 import java.util.Deque;
 import java.util.LinkedList;
