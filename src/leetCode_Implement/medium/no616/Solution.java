@@ -7,7 +7,7 @@ public class Solution {
     //문자열 s를 words 로 마킹 !!
     //내가직접 마킹을 해본다고 생각해보자 !!
     //XML parser
-    //내가 기존에 썻던것은 merge interval
+    //내가 기존에 썻던것은 merge interval !!
     public String addBoldTag(String s, String[] words) {
         Deque<Integer> queue = new LinkedList<>();
 
