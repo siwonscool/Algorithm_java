@@ -2,28 +2,28 @@ package leetCode_Implement.medium.no616;
 
 import java.util.*;
 
-public class Solution {
-
+class Solution {
     public String addBoldTag(String s, String[] words) {
         Deque<Integer> queue = new LinkedList<>();
 
         int flag = 0;
-        for (int i = 0; i < s.length(); i++) {
+        loop1 : for (int i = 0; i < s.length(); i++) {
             for (String word : words){
+                if(word.equals(s)){
+                    return "<b>"+s+"</b>";
+                }
                 if (s.startsWith(word,i)){
-                    if (queue.isEmpty()){
-                        queue.add(i);
-                    }else if (queue.peekLast() > i){
-                        queue.pollFirst();
-                    }else if (queue.peekLast() != i){
+                    if(!queue.isEmpty() && queue.peekLast()>=i){
+                        queue.pollLast();
+                    }else{
                         queue.add(i);
                     }
 
-                    flag = Math.max(flag,i + word.length());
+                    flag = Math.max(flag, i + word.length());
                 }
             }
 
-            if (queue.peekLast() != flag){
+            if (!queue.isEmpty() && queue.peekLast() != flag){
                 queue.add(flag);
             }
         }
