@@ -9,10 +9,7 @@ class Solution {
             int midPile = minPile + (maxPile - minPile)/2;
             int totalHour = 0;
             for(int pile : piles){
-                totalHour += pile / midPile;
-                if (pile % midPile != 0){
-                    totalHour ++;
-                }
+                totalHour += pile / midPile + (pile % midPile != 0 ? 1 : 0);
             }
 
             if (totalHour <= h){
