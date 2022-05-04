@@ -7,16 +7,16 @@ class Solution {
         int count = 0;
 
         for (int i = 0; i < tickets.length; i++) {
-            if (i <= k){
-                if (tickets[i] < tickets[k]){
+            if (i <= k) {
+                if (tickets[i] < tickets[k]) {
                     count += tickets[i];
-                }else {
+                } else {
                     count += tickets[k];
                 }
-            }else {
-                if (tickets[i] < tickets[k]){
+            } else {
+                if (tickets[i] < tickets[k]) {
                     count += tickets[i];
-                }else {
+                } else {
                     count += tickets[k] - 1;
                 }
             }
